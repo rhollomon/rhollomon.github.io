@@ -1,0 +1,236 @@
+<!doctype html>
+<head>
+
+  <title>Personal Website</title>
+
+  <!-- Begin CSS styling -->
+  <style>
+    /* Custom fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Julius+Sans+One&display=swap");
+
+    /* Starry background + text */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1e8d2;
+      color: #202c39;
+      margin: 0;
+      padding: 0;
+      background-image: url("../assets/bkg.png");
+      background-repeat: repeat;
+      background-position:
+        left center,
+        right center;
+      background-size: auto;
+    }
+
+    body.dark{
+      background-image: url("../assets/bkgdark.png");
+    }
+
+    /* Header styling */
+    header {
+      background-color: #0c1821;
+      color: #f2d492;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-family: "Instrument Serif", serif;
+      margin: 0;
+    }
+
+    /* Navigation menu styling & buttons (desktop) */
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      color: #202c39;
+      background-color: #f2d492;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+    nav a:hover {
+      background-color: #f29559;
+      color: black;
+    }
+
+    /* Dark mode button styling*/
+    #dark-mode-toggle {
+      color: #202c39;
+      background-color: #f2d492;
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #dark-mode-toggle:hover {
+      background-color: #f29559;
+      color: black;
+    }
+
+    /*Class for real page body on top of star background*/
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #f1e8d2;
+      padding: 50px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /*Darkmode styling*/
+    .container.dark {
+      background-color: #0c1821;
+      color: #f2d492;
+    }
+
+    /* Picture of me */
+    .container img {
+      width: 250px;
+      height: auto;
+      border: 5px dotted #202c39;
+      border-radius: 10px;
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #f2d492;
+    }
+
+    /* Auto-formatting for narrow screens (<650px)*/
+    @media (max-width: 650px) {
+      nav {
+        display: none; /* Hide nav links by default */
+        flex-direction: column;
+        background-color: #0c1821;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+      }
+
+      nav a {
+        display: block;
+        padding: 15px;
+        width: 100%;
+        border-radius: 0;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .container img {
+        width: 150px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .show-menu {
+        display: flex;
+      }
+    }
+
+    /*Footer styling*/
+    footer {
+      background-color: #0c1821;
+      color: #f2d492;
+      text-align: left;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  </style>
+
+  <!-- End CSS styling -->
+</head>
+
+<!-- Header display -->
+<header>
+  <h1>Ruby H.</h1>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <!-- Defining menu buttons and links -->
+  <nav id="nav-menu">
+    <a href="../index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="interests.html">Interests</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Auto-toggle function for mobile menu -->
+  <script>
+    function toggleMenu() {
+      var nav = document.getElementById("nav-menu")
+      nav.classList.toggle("show-menu")
+    }
+  </script>
+</header>
+
+<!-- Body display -->
+<body>
+  <div class="container">
+    <div>
+      <h2>My Projects</h2>
+      <p>
+        As a hobby, I enjoy doing game development, and have worked on several projects 
+        related to this. In 2023, I worked with a team of other students to develop a 2D Zelda-style 
+        RPG from the ground up in Java. For this project, I worked to develop a level editor that works by 
+        reading a 2D array of tile IDs from a text file, a map loading system that only loads assets that are currently 
+        in the viewport for efficiency. Besides this, I also created all of the spritework and visual assets.
+      </p>
+      <img src="../assets/lon.png" alt="Legend of Nine graphic">
+      <br>
+      <p>
+        Currently, for my senior project, I am working with a team to develop a Python-based platformer game.
+        Here is some (early) concept art I have made for it:
+      </p>
+      <img src="../assets/slime1.png" alt="Slime game graphic 1">
+      <img src="../assets/slime2.png" alt="Slime game graphic 2">
+      <br>
+      <p>
+        I also have spent a decent amount of time developing miscellaneous personal projects in RPGMaker MV and 
+        GameMaker (currently). Here is the amount of time I spent on creating a single demo in RPGMaker MV…
+      </p>
+      <img src="../assets/time.png" alt="350 hours">
+    </div>
+  </div>
+</body>
+
+<!-- Footer display -->
+<footer>
+  <div>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+  </div>
+
+  <!-- Dark mode toggle script -- changes .container and body -->
+  <script>
+    document.getElementById("dark-mode-toggle").onclick = function () {
+      document.querySelector(".container").classList.toggle("dark")
+      document.getElementsByTagName("body")[0].classList.toggle("dark");
+    }
+  </script>
+</footer>
