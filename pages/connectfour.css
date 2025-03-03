@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Galindo&family=Instrument+Serif&family=Julius+Sans+One&display=swap');
+
+h1 {
+    font-family: "Galindo", serif;
+    font-size: 48px;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+body {
+    font-family: "Julius Sans One", serif;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+#board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    grid-gap: 5px;
+    width: fit-content;
+    margin: 20px auto;
+    background: #0044cc;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.piece {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: calc(var(--drop-col) * 65px + 10px);
+    background-color: var(--color);
+    transition: transform 0.5s ease-in;
+    transform: translateY(calc(var(--drop-row) * 65px + 10px));
+    z-index: 3;
+}
+
+.red { --color: red; }
+.yellow { --color: yellow; }
+
+#message {
+    font-size: 24px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#reset-button {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+}
+
+#reset-button:hover {
+    background-color: #b40e0e;
+}
+
+.back-button {
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #202c39;
+    color: #f2d492;
+}
+
+.back-button:hover {
+    background-color: #f29559;
+    color: black;
+}
