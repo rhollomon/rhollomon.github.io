@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     
-
+    // Animate the dropping of a piece
     function animateDrop(row, column, player) {
         const piece = document.createElement("div");
         piece.classList.add("piece", player); // add piece with red or yellow class
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+    // Handle click events on the game board cells
     function handleClick(event) {
         if (event.target.classList.contains("cell")) {
             // Drop piece given column dataset index
